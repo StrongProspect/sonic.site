@@ -22,7 +22,7 @@ const defaultLang = navigator.language?.substring(0, 2);
 
 const langKey = (
   isSupportedLanguage(defaultLang ?? "en") ? defaultLang : "en"
-) as keyof typeof TextContent;
+) as Language;
 
 const TextContext = createContext<ITextContext>(TextContent[langKey]);
 
