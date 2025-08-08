@@ -8,7 +8,10 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
+import { TextProvider, type Language } from "./contexts/textContext";
+
 import "./app.css";
+import { useState } from "react";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -24,8 +27,10 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const [lanugage, setLanguage] = useState<Language>("en");
+
   return (
-    <html lang="en">
+    <html>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,9 +38,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
+        <TextProvider>
+          {children}
+          <ScrollRestoration />
+          <Scripts />
+        </TextProvider>
       </body>
     </html>
   );
