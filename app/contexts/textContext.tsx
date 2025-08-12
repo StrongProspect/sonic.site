@@ -7,6 +7,9 @@ interface ITextContent {
   es: ITextContext;
 }
 
+// ideally these will come from a CDN in the future;
+// we may have to just ignore statically typing with the ITextContext
+//  at that point, no sense in tying up code and content together
 export const TextContent: ITextContent = { en, es };
 Object.freeze(TextContent);
 
