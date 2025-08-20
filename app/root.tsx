@@ -6,12 +6,9 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-
 import type { Route } from "./+types/root";
-import { TextProvider, type Language } from "./contexts/textContext";
 
 import "./app.css";
-import { useState } from "react";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -27,8 +24,6 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const [lanugage, setLanguage] = useState<Language>("en");
-
   return (
     <html>
       <head>
@@ -38,11 +33,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <TextProvider>
-          {children}
-          <ScrollRestoration />
-          <Scripts />
-        </TextProvider>
+        {children}
+        <ScrollRestoration />
+        <Scripts />
       </body>
     </html>
   );
