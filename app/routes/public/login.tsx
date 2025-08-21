@@ -1,17 +1,16 @@
 import { data, redirect } from "react-router";
-import type { Route } from "./+types/login";
-import { getSession, commitSession } from "../sessions.server";
+import type { Route } from "../public/+types/login";
+import { getSession, commitSession } from "../../sessions.server";
 import useApi from "~/hooks/useApi";
 import type { ITokenResponseDto } from "~/interfaces/api/users/ITokenResponseDto";
 import type { IUserLoginDto } from "~/interfaces/api/users/IUserLoginDto";
 
-// setup request as part of Route.LoaderArgs
 export async function loader({ request }: Route.LoaderArgs) {
   const session = await getSession(request.headers.get("Cookie"));
 
   if (session.has("auth")) {
     // redirect to home if logged in already
-    return redirect("/home");
+    return redirect("/");
   }
 
   if (
@@ -31,7 +30,6 @@ export async function loader({ request }: Route.LoaderArgs) {
   );
 }
 
-// setup request as part of Route.ActionArgs
 export async function action({ request }: Route.ActionArgs) {
   const { makeRequestAsync } = useApi();
 
@@ -76,7 +74,7 @@ export async function action({ request }: Route.ActionArgs) {
     session.set("expiration", expiration);
     session.set("refreshToken", refreshToken);
 
-    return redirect("/home", {
+    return redirect("/", {
       headers: {
         "Set-Cookie": await commitSession(session),
       },
