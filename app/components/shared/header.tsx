@@ -7,42 +7,49 @@ const Header = () => {
   const navLinks = [
     <NavLink
       className="text-white hover:text-gray-300 transition-colors duration-300"
+      key="/"
       to="/"
     >
       Home
     </NavLink>,
     <NavLink
       className="text-white hover:text-gray-300 transition-colors duration-300"
+      key="/why"
       to="/why"
     >
       Why
     </NavLink>,
     <NavLink
       className="text-white hover:text-gray-300 transition-colors duration-300"
+      key="/tools"
       to="/tools"
     >
       Tools
     </NavLink>,
     <NavLink
       className="text-white hover:text-gray-300 transition-colors duration-300"
+      key="/help"
       to="/help"
     >
       Contact
     </NavLink>,
     <NavLink
       className="text-white hover:text-gray-300 transition-colors duration-300"
+      key="/blog"
       to="/blog"
     >
       Blog
     </NavLink>,
     <NavLink
       className="text-white hover:text-gray-300 transition-colors duration-300"
+      key="/signup"
       to="/signup"
     >
       Sign Up
     </NavLink>,
     <NavLink
       className="text-white hover:text-gray-300 transition-colors duration-300"
+      key="/login"
       to="/login"
     >
       Login

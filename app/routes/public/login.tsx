@@ -10,14 +10,7 @@ export async function loader({ request }: Route.LoaderArgs) {
 
   if (session.has("auth")) {
     // redirect to home if logged in already
-    return redirect("/");
-  }
-
-  if (
-    (session.get("expiration") ??
-      new Date().setHours(new Date().getHours() + 1)) > new Date()
-  ) {
-    //do our refresh logic
+    return redirect("/dashboard");
   }
 
   return data(
@@ -62,19 +55,13 @@ export async function action({ request }: Route.ActionArgs) {
 
     if (!accessToken) {
       session.flash("error", "Invalid username/password");
-
-      return redirect("/login", {
-        headers: {
-          "Set-Cookie": await commitSession(session),
-        },
-      });
     }
 
     session.set("auth", accessToken);
     session.set("expiration", expiration);
     session.set("refreshToken", refreshToken);
 
-    return redirect("/", {
+    return redirect("/dashboard", {
       headers: {
         "Set-Cookie": await commitSession(session),
       },
