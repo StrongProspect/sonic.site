@@ -1,4 +1,4 @@
-import type { Route } from "../public/+types/help";
+import type { Route } from "../public/+types/privacy";
 
 export async function loader({ request }: Route.LoaderArgs) {
   // TODO: Implement your loader logic here
@@ -10,12 +10,12 @@ export async function action({ request }: Route.ActionArgs) {
   return {};
 }
 
-export default function Help({ loaderData }: Route.ComponentProps) {
+export default function Privacy({ loaderData }: Route.ComponentProps) {
 
   return (
     <div>
       {/* TODO: Add your page's JSX here */}
-      <h1>Help Page</h1>
+      <h1>Privacy Page</h1>
     </div>
   );
 }

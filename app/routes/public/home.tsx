@@ -1,16 +1,21 @@
-import { getSession } from "~/sessions.server";
 import type { Route } from "../public/+types/home";
-import { redirect } from "react-router";
 
 export async function loader({ request }: Route.LoaderArgs) {
-  const session = await getSession(request.headers.get("Cookie"));
-
-  // if (!session.has("auth")) {
-  // redirect to home if logged in already
-  //   return redirect("/");
-  // }
+  // TODO: Implement your loader logic here
+  return {};
 }
 
-export default function Home() {
-  return <h1>Hi</h1>;
+export async function action({ request }: Route.ActionArgs) {
+  // TODO: Implement your action logic here
+  return {};
+}
+
+export default function Home({ loaderData }: Route.ComponentProps) {
+
+  return (
+    <div>
+      {/* TODO: Add your page's JSX here */}
+      <h1>Home Page</h1>
+    </div>
+  );
 }

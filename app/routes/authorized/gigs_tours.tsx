@@ -1,0 +1,20 @@
+import type { Route } from "../authorized/+types/gigs_tours";
+
+export async function loader({ request }: Route.LoaderArgs) {
+  // TODO: Implement your loader logic here
+  return {};
+}
+
+export async function action({ request }: Route.ActionArgs) {
+  // TODO: Implement your action logic here
+  return {};
+}
+
+export default function Gigs_tours({ loaderData }: Route.ComponentProps) {
+  return (
+    <div>
+      {/* TODO: Add your page's JSX here */}
+      <h1>Gigs_tours Page</h1>
+    </div>
+  );
+}
