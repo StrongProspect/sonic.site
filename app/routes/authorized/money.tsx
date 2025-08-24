@@ -11,11 +11,15 @@ export async function action({ request }: Route.ActionArgs) {
 }
 
 export default function Money({ loaderData }: Route.ComponentProps) {
-
   return (
     <div>
       {/* TODO: Add your page's JSX here */}
-      <h1>Money Page</h1>
+      <h2>Money Page</h2>
+      <ol>
+        <li>store</li>
+        <li>money tracker</li>
+        <li>budgets</li>
+      </ol>
     </div>
   );
 }

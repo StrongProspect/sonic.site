@@ -36,6 +36,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
+        <script
+          type="module"
+          src="https://esm.sh/ionicons@latest/loader"
+        ></script>
+        <script noModule src="https://esm.sh/ionicons@latest/loader"></script>
       </body>
     </html>
   );

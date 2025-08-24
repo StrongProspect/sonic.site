@@ -10,7 +10,7 @@ export async function loader({ request }: Route.LoaderArgs) {
 
   if (session.has("auth")) {
     // redirect to home if logged in already
-    return redirect("/dashboard");
+    return redirect("/toolbox");
   }
 
   return data(
@@ -55,19 +55,29 @@ export async function action({ request }: Route.ActionArgs) {
 
     if (!accessToken) {
       session.flash("error", "Invalid username/password");
+
+      return redirect("/login", {
+        headers: { "Set-Cookie": await commitSession(session) },
+      });
     }
 
     session.set("auth", accessToken);
     session.set("expiration", expiration);
     session.set("refreshToken", refreshToken);
 
-    return redirect("/dashboard", {
+    const commit = await commitSession(session);
+
+    return redirect("/toolbox", {
       headers: {
-        "Set-Cookie": await commitSession(session),
+        "Set-Cookie": commit,
       },
     });
   } catch (ex) {
     session.flash("error", "Something went wrong");
+
+    return redirect("/login", {
+      headers: { "Set-Cookie": await commitSession(session) },
+    });
   }
 }
 

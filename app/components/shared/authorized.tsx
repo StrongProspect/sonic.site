@@ -27,14 +27,7 @@ export async function loader({ request }: Route.LoaderArgs) {
 }
 
 const Authorized = ({ loaderData }: Route.ComponentProps) => {
-  return (
-    <div>
-      <h1>You're logged in!</h1>
-      <div>
-        <Outlet />
-      </div>
-    </div>
-  );
+  return <Outlet />;
 };
 
 export default Authorized;

@@ -57,8 +57,8 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-[#3aabe8] text-gray-900 font-sans shadow-md">
-      <div className="container mx-auto px-6 py-4">
+    <header className="bg-[#00204a] text-gray-900 font-sans shadow-md">
+      <div className="container mx-auto px-1 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2 max-w-xs">
             <img src="../public/assets/sonicdiy_logo.png" />

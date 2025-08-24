@@ -11,11 +11,15 @@ export async function action({ request }: Route.ActionArgs) {
 }
 
 export default function Toolbox({ loaderData }: Route.ComponentProps) {
-
   return (
     <div>
       {/* TODO: Add your page's JSX here */}
       <h1>Toolbox Page</h1>
+      <ol>
+        <li>contracts</li>
+        <li>stage plot builder</li>
+        <li>venue finder (move this to gigs/tours maybe?)</li>
+      </ol>
     </div>
   );
 }

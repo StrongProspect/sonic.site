@@ -3,6 +3,7 @@ import {
   index,
   route,
   layout,
+  prefix,
 } from "@react-router/dev/routes";
 
 export default [
@@ -17,12 +18,13 @@ export default [
     route("/tools", "routes/public/tools.tsx"),
     route("/why", "routes/public/why.tsx"),
     layout("components/shared/authorized.tsx", [
-      route("/dashboard", "routes/authorized/dashboard.tsx"),
-      route("/gigs-tours", "routes/authorized/gigs_tours.tsx"),
-      route("/money", "routes/authorized/money.tsx"),
-      route("/promo", "routes/authorized/promo.tsx"),
-      route("/settings", "routes/authorized/settings.tsx"),
-      route("/toolbox", "routes/authorized/toolbox.tsx"),
+      layout("components/shared/dashboard.tsx", [
+        route("/toolbox", "routes/authorized/toolbox.tsx"),
+        route("/gigs-tours", "routes/authorized/gigs_tours.tsx"),
+        route("/money", "routes/authorized/money.tsx"),
+        route("/promo", "routes/authorized/promo.tsx"),
+        route("/settings", "routes/authorized/settings.tsx"),
+      ]),
     ]),
   ]),
 ] satisfies RouteConfig;
