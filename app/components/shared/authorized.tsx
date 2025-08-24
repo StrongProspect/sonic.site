@@ -4,7 +4,6 @@ import type { Route } from "./+types/authorized";
 
 export async function loader({ request }: Route.LoaderArgs) {
   const session = await getSession(request.headers.get("Cookie"));
-  const cook = request.headers.get("Cookie");
 
   if (!session.has("auth")) {
     return redirect("/login");

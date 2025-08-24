@@ -22,15 +22,15 @@ const { getSession, commitSession, destroySession } =
       // Expires can also be set (although maxAge overrides it when used in combination).
       // Note that this method is NOT recommended as `new Date` creates only one date on each server deployment, not a dynamic date in the future!
       //
-      expires: new Date(Date.now() + 60_000),
+      // expires: new Date(Date.now() + 60_000),
       httpOnly: true,
       // maxAge: 60,
       // path: "/",
       sameSite: "lax",
       // make dynamic/configureable secrets?
-      secrets: [
-        "j45VMYox8wiUx2iqQr22GNgzsXc3ZALzvDjHm6BSPUzx8SMt2r8mmkmTTE9X3Q6x",
-      ],
+      // secrets: [
+      //   "s3cr3t",
+      // ],
       secure: false,
     },
   });
