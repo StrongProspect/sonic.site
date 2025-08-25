@@ -3,8 +3,15 @@ import {
   index,
   route,
   layout,
-  prefix,
 } from "@react-router/dev/routes";
+
+export enum PrivateRoute {
+  Toolbox = "/toolbox",
+  Shows = "/gigs-tours",
+  Money = "/money",
+  Promo = "/promo",
+  Settings = "/settings",
+}
 
 export default [
   layout("components/shared/layout.tsx", [
@@ -17,14 +24,12 @@ export default [
     route("/terms", "routes/public/terms.tsx"),
     route("/tools", "routes/public/tools.tsx"),
     route("/why", "routes/public/why.tsx"),
-    layout("components/shared/authorized.tsx", [
-      layout("components/shared/dashboard.tsx", [
-        route("/toolbox", "routes/authorized/toolbox.tsx"),
-        route("/gigs-tours", "routes/authorized/gigs_tours.tsx"),
-        route("/money", "routes/authorized/money.tsx"),
-        route("/promo", "routes/authorized/promo.tsx"),
-        route("/settings", "routes/authorized/settings.tsx"),
-      ]),
+    layout("components/shared/dashboard.tsx", [
+      route(PrivateRoute.Toolbox, "routes/authorized/toolbox.tsx"),
+      route(PrivateRoute.Shows, "routes/authorized/gigs_tours.tsx"),
+      route(PrivateRoute.Money, "routes/authorized/money.tsx"),
+      route(PrivateRoute.Promo, "routes/authorized/promo.tsx"),
+      route(PrivateRoute.Settings, "routes/authorized/settings.tsx"),
     ]),
   ]),
 ] satisfies RouteConfig;

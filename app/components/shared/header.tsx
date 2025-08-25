@@ -1,61 +1,12 @@
 import { useState } from "react";
-import { NavLink } from "react-router";
+import { MenuLinks } from "./menuLinks";
 
-const Header = () => {
+interface IHeader {
+  authorized: boolean;
+}
+
+const Header = ({ authorized = false }: IHeader) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const navLinks = [
-    <NavLink
-      className="text-white hover:text-gray-300 transition-colors duration-300"
-      key="/"
-      to="/"
-    >
-      Home
-    </NavLink>,
-    <NavLink
-      className="text-white hover:text-gray-300 transition-colors duration-300"
-      key="/why"
-      to="/why"
-    >
-      Why
-    </NavLink>,
-    <NavLink
-      className="text-white hover:text-gray-300 transition-colors duration-300"
-      key="/tools"
-      to="/tools"
-    >
-      Tools
-    </NavLink>,
-    <NavLink
-      className="text-white hover:text-gray-300 transition-colors duration-300"
-      key="/help"
-      to="/help"
-    >
-      Contact
-    </NavLink>,
-    <NavLink
-      className="text-white hover:text-gray-300 transition-colors duration-300"
-      key="/blog"
-      to="/blog"
-    >
-      Blog
-    </NavLink>,
-    <NavLink
-      className="text-white hover:text-gray-300 transition-colors duration-300"
-      key="/signup"
-      to="/signup"
-    >
-      Sign Up
-    </NavLink>,
-    <NavLink
-      className="text-white hover:text-gray-300 transition-colors duration-300"
-      key="/login"
-      to="/login"
-    >
-      Login
-    </NavLink>,
-  ];
-
   return (
     <header className="bg-[#00204a] text-gray-900 font-sans shadow-md">
       <div className="container mx-auto px-1 py-4">
@@ -63,11 +14,11 @@ const Header = () => {
           <div className="flex items-center space-x-2 max-w-xs">
             <img src="../public/assets/sonicdiy_logo.png" />
           </div>
-          <nav className="hidden md:flex space-x-6">{navLinks}</nav>
+          <MenuLinks authorized={authorized} />
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-800 hover:text-black focus:outline-none"
+              className="text-white hover:text-light focus:outline-none"
               aria-label="Open menu"
             >
               {isMenuOpen ? (
@@ -106,7 +57,9 @@ const Header = () => {
         </div>
         {isMenuOpen && (
           <div className="md:hidden mt-4">
-            <nav className="flex flex-col space-y-2">{navLinks}</nav>
+            <nav className="flex flex-col space-y-2">
+              <MenuLinks authorized={authorized} />
+            </nav>
           </div>
         )}
       </div>

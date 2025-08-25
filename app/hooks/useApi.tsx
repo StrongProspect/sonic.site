@@ -7,7 +7,7 @@ export type UrlConstruct = "path" | "query";
 
 export default function useApi() {
   async function makeRequestAsync<T, X>(
-    headerOptions: Headers | null,
+    headerOptions: { [key: string]: string } | null,
     resource: ApiResource,
     routeOptions: { type: UrlConstruct; key?: string; value: string }[] | null,
     method: Method,

@@ -4,6 +4,15 @@
   --font-sans:
     "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --color-primary: oklch(67.42% 0.219 239.11);
+  --color-secondary: oklch(76.51% 0.165 220.5);
+  --color-tertiary: oklch(91.31% 0.024 153.37);
+  --color-light: oklch(95.03% 0.019 252.17);
+  --color-alt-primary: oklch(62.46% 0.16 329.83);
+  --color-alt-secondary: oklch(68.5% 0.06 319.46);
+  --color-alt-tertiary: oklch(72.76% 0.161 230.1);
+  --color-dark: oklch(14.89% 0 0);
+  --color-disabled: oklch(85.452% 0.0001 271.152);
 }
 /*
 html,

@@ -116,6 +116,9 @@ const Dashboard = ({}: IDashboardProps) => {
           {tabs.map((tab, index) => (
             <button
               key={index}
+              bg-white
+              rounded-xl
+              shadow-lg
               onClick={() => handleClick(index, tab.path)}
               className={`flex items-center justify-center w-full py-4 px-2 text-base font-medium transition-colors duration-300 focus:outline-none ${
                 activeTab === index
