@@ -3,9 +3,10 @@ import { MenuLinks } from "./menuLinks";
 
 interface IHeader {
   authorized: boolean;
+  handleLogout(e: React.FormEvent<HTMLFormElement>): void;
 }
 
-const Header = ({ authorized = false }: IHeader) => {
+const Header = ({ authorized = false, handleLogout }: IHeader) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <header className="bg-[#00204a] text-gray-900 font-sans shadow-md">
@@ -14,7 +15,7 @@ const Header = ({ authorized = false }: IHeader) => {
           <div className="flex items-center space-x-2 max-w-xs">
             <img src="../public/assets/sonicdiy_logo.png" />
           </div>
-          <MenuLinks authorized={authorized} />
+          <MenuLinks authorized={authorized} logoutClick={handleLogout} />
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -58,7 +59,7 @@ const Header = ({ authorized = false }: IHeader) => {
         {isMenuOpen && (
           <div className="md:hidden mt-4">
             <nav className="flex flex-col space-y-2">
-              <MenuLinks authorized={authorized} />
+              <MenuLinks authorized={authorized} logoutClick={handleLogout} />
             </nav>
           </div>
         )}

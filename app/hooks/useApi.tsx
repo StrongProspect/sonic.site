@@ -1,5 +1,7 @@
 import type { ApiResource } from "~/interfaces/api/ApiResources";
 import { environment } from "~/environments/environment";
+import type { ITokenResponseDto } from "~/interfaces/api/users/ITokenResponseDto";
+import type { IUserLoginDto } from "~/interfaces/api/users/IUserLoginDto";
 
 export type Method = "POST" | "GET" | "PUT" | "DELETE";
 
@@ -44,7 +46,18 @@ export default function useApi() {
     return [data, status] as CustomResponse;
   }
 
+  async function authenticate(input: IUserLoginDto) {
+    return await makeRequestAsync<ITokenResponseDto, IUserLoginDto>(
+      null,
+      "account",
+      [{ type: "path", value: "login" }],
+      "POST",
+      input
+    );
+  }
+
   return {
     makeRequestAsync,
+    authenticate,
   };
 }

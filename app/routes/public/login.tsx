@@ -24,7 +24,7 @@ export async function loader({ request }: Route.LoaderArgs) {
 }
 
 export async function action({ request }: Route.ActionArgs) {
-  const { makeRequestAsync } = useApi();
+  const { makeRequestAsync, authenticate } = useApi();
 
   const session = await getSession(request.headers.get("Cookie"));
 
@@ -34,16 +34,7 @@ export async function action({ request }: Route.ActionArgs) {
 
   try {
     const [{ accessToken, expiration, refreshToken }, status] =
-      await makeRequestAsync<ITokenResponseDto, IUserLoginDto>(
-        null,
-        "account",
-        [{ type: "path", value: "login" }],
-        "POST",
-        {
-          username,
-          password,
-        }
-      );
+      await authenticate({ username, password });
 
     if (status >= 500) {
       throw Error(`Code ${500} was returned.`);
