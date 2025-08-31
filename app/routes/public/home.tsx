@@ -11,7 +11,6 @@ export async function action({ request }: Route.ActionArgs) {
 }
 
 export default function Home({ loaderData }: Route.ComponentProps) {
-
   return (
     <div>
       {/* TODO: Add your page's JSX here */}

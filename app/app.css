@@ -1,19 +1,77 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/app/fonts/Roboto-Regular-webfont.woff");
+}
+
+@font-face {
+  font-family: "Bruno Ace";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/app/fonts/brunoace-regular-webfont.woff2");
+}
+
 @theme {
-  --font-sans:
-    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --color-primary: oklch(67.42% 0.219 239.11);
-  --color-secondary: oklch(76.51% 0.165 220.5);
-  --color-tertiary: oklch(91.31% 0.024 153.37);
+  --color-primary: oklch(61.98% 0.224 339.85);
+  --color-secondary: oklch(54.67% 0.19 328.04);
+  --color-tertiary: oklch(33.08% 0.113 283.47);
   --color-light: oklch(95.03% 0.019 252.17);
-  --color-alt-primary: oklch(62.46% 0.16 329.83);
-  --color-alt-secondary: oklch(68.5% 0.06 319.46);
-  --color-alt-tertiary: oklch(72.76% 0.161 230.1);
+  --color-alt-primary: oklch(58.8% 0.086 266.04);
+  --color-alt-secondary: oklch(91.07% 0.088 199.64);
   --color-dark: oklch(14.89% 0 0);
   --color-disabled: oklch(85.452% 0.0001 271.152);
+  --font-bruno: "Bruno Ace", serif;
+  --font-roboto: Roboto, sans-serif;
 }
+
+@layer {
+  body {
+    color: var(--color-light);
+    font-family: var(--font-roboto);
+    font-size: 1.5rem;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  h1 {
+    color: var(--color-alt-secondary);
+    font-family: var(--font-bruno);
+    font-weight: 400;
+    font-size: 3.5rem;
+    line-height: 100%;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    color: var(--color-alt-secondary);
+    font-family: var(--font-bruno);
+    font-weight: 400;
+    font-size: 2rem;
+  }
+
+  h3 {
+    color: var(--color-alt-secondary);
+    font-family: var(--font-bruno);
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  h4 {
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.5rem;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+}
+
 /*
 html,
 body {
@@ -23,14 +81,3 @@ body {
     color-scheme: dark;
   }
 } */
-
-/*
-#009bff
-#00bbf0
-#d1e7dd
-#e8f0fe
-#b95391
-#a4799c
-#3aabe8
-#0c0c0c
-*/

@@ -69,11 +69,11 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#00204a] text-gray-50 font-sans">
+    <footer className="bg-primary text-alt-secondary font-sans">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
-            <h2 className="text-2xl font-bold mb-4">Sonic DIY</h2>
+            {/* <h2 className="text-2xl font-bold mb-4">Sonic DIY</h2> */}
             <p className="text-white">Catch phrase.</p>
           </div>
           <div>
@@ -82,7 +82,7 @@ const Footer = () => {
               {companyLinks.map((link) => (
                 <li key={link.label}>
                   <NavLink
-                    className="text-white hover:text-gray-300 transition-colors duration-300"
+                    className="text-white hover:text-alt-secondary transition-colors duration-300"
                     to={link.href}
                   >
                     {link.label}
@@ -98,7 +98,7 @@ const Footer = () => {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-white hover:text-gray-300 transition-colors duration-300"
+                    className="text-white hover:text-alt-secondary transition-colors duration-300"
                   >
                     {link.label}
                   </a>
@@ -116,7 +116,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="text-white hover:text-gray-300 transition-colors duration-300"
+                  className="text-white hover:text-alt-secondary transition-colors duration-300"
                 >
                   {social.icon}
                 </a>

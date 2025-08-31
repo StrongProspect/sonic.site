@@ -9,17 +9,17 @@ interface IHeader {
 const Header = ({ authorized = false, handleLogout }: IHeader) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <header className="bg-[#00204a] text-gray-900 font-sans shadow-md">
+    <header className="bg-primary text-gray-900 font-sans shadow-md">
       <div className="container mx-auto px-1 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2 max-w-xs">
-            <img src="../public/assets/sonicdiy_logo.png" />
+          <div className="flex items-center space-x-2 max-w-md">
+            <h1 className="text-alt-secondary">SONIC DIY</h1>
           </div>
           <MenuLinks authorized={authorized} logoutClick={handleLogout} />
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white hover:text-light focus:outline-none"
+              className="text-white hover:text-alt-secondary focus:outline-none"
               aria-label="Open menu"
             >
               {isMenuOpen ? (
